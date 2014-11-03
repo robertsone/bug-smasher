@@ -1,0 +1,8 @@
+C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\obj\x86\Debug\InsectGenerator.csprojResolveAssemblyReference.cache
+C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\background.xnb
+C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\spritesheet.xnb
+C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\InsectGenerator.exe
+C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\InsectGenerator.pdb
+C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\obj\x86\Debug\InsectGenerator.exe
+C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\obj\x86\Debug\InsectGenerator.pdb
