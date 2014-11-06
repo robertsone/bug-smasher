@@ -53,16 +53,18 @@ namespace InsectGenerator
             {
                 steerTimer = rand.Next(0, (int)steerTime/2);
 
+             
                 Vector2 mpos = new Vector2(Location.X + 400 * (velocity.X > 0 ? 1 : -1), Location.Y + rand.Next(-300, 300));
-
                 Vector2 vel = mpos - Location;
                 vel.Normalize();
                 vel *= 100;
-
                 Rotation = (float)Math.Atan2(vel.Y, vel.X);
 
                 Velocity = vel;
+               
+             
             }
+            
 
             //FlipHorizontal = velocity.X < 0;
 

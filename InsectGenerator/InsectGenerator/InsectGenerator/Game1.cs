@@ -73,7 +73,7 @@ namespace InsectGenerator
             {
                 for (int y = 0; y < 10; y++)
                 {
-                    SpawnBug(new Vector2(-50 - (x*100) + rand.Next(-40, 40), 10 + y * 45 + rand.Next(-10, 10)));
+                    SpawnBug(new Vector2(-50 - (x*100) + rand.Next(-60, 60), 10 + y * 45 + rand.Next(-10, 10)));
                 }
             }
 
@@ -104,10 +104,10 @@ namespace InsectGenerator
             {
                 bugs[i].Update(gameTime);
                 bugs[i].mood = BugMoods.Normal;
-                if (bugs[i].Location.X > this.Window.ClientBounds.Width && bugs[i].Velocity.X < 0) 
+                if (bugs[i].Location.X > this.Window.ClientBounds.Width && bugs[i].Velocity.X > 0) 
                 {
                     bugs[i].Velocity *= new Vector2(-1, 1);
-                    //bugs[i].FlipHorizontal = true; 
+                    bugs[i].FlipHorizontal = true; 
                 }
 
                 if (bugs[i].Location.X > -70 && bugs[i].Velocity.X < 0)
@@ -124,7 +124,37 @@ namespace InsectGenerator
                         bugs[i].mood = BugMoods.Angry;
                     }
                 }
+
+                for (int j = 0; j < bugs.Count; j++)
+                {
+                    if (bugs[i].IsBoxColliding(bugs[j].BoundingBoxRect))
+                    {
+
+                        
+
+                        
+                            
+                    }
+                }
+                /*if (bugs[j].Velocity.Y > 0 && bugs[i].Velocity.Y>0)
+                        {
+                            bugs[i].Velocity *= new Vector2(1, -1);
+                        }
+                        else if (bugs[j].Velocity.Y < 0 && bugs[i].Velocity.Y < 0)
+                        {
+                            bugs[i].Velocity *= new Vector2(1, -1);
+                        }*/
+
+                if (bugs[i].Location.X > this.Window.ClientBounds.Width + 100)
+                {
+                    bugs.Remove(bugs[i]);
+                    SpawnBug(new Vector2(rand.Next(-160, -64), rand.Next(20, 400)));
+                    
+                }
+     
             }
+
+
 
 
 
