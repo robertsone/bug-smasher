@@ -22,6 +22,8 @@ namespace InsectGenerator
         float TimePerUpdate = 2.00f;
         List<Bug> bugs = new List<Bug>();
         int bugNum = 100;
+        bool Canclick = true;
+        bool leftMouseClicked=false;
 
         public Game1()
         {
@@ -99,7 +101,26 @@ namespace InsectGenerator
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
+
+            MouseState ms = Mouse.GetState();
+            IsMouseVisible = true;
+            leftMouseClicked = false;
+
+            if (ms.LeftButton != ButtonState.Pressed)
+            {
+                Canclick = true;
+                
+
+            }
+            if (ms.LeftButton == ButtonState.Pressed && Canclick == true)
+            {
+                leftMouseClicked = true;
+                Canclick = false;
+                
+            }
             
+             
+           
             for (int i = 0; i < bugs.Count; i++)
             {
                 bugs[i].Update(gameTime);
@@ -115,6 +136,13 @@ namespace InsectGenerator
                     bugs[i].Velocity *= new Vector2(-1, 1);
                     //bugs[i].FlipHorizontal = true; 
                 }
+
+                Rectangle mouserectangle = new Rectangle (ms.X, ms.Y, 1,1);
+                if(bugs[i].IsBoxColliding(mouserectangle) && leftMouseClicked == true && !bugs[i].Dead)
+                {
+                    bugs[i].Change();
+                }
+               
 
                 for (int j = 0; j < bugs.Count; j++)
                 {
@@ -135,6 +163,8 @@ namespace InsectGenerator
                         
                             
                     }
+
+                   
                 }
                 /*if (bugs[j].Velocity.Y > 0 && bugs[i].Velocity.Y>0)
                         {
@@ -153,6 +183,9 @@ namespace InsectGenerator
                 }
      
             }
+
+            
+            
 
 
 
@@ -183,7 +216,14 @@ namespace InsectGenerator
 
             for (int i = 0; i < bugs.Count; i++)
             {
-                bugs[i].Draw(spriteBatch);
+                if (bugs[i].Dead)
+                    bugs[i].Draw(spriteBatch);
+            }
+
+            for (int i = 0; i < bugs.Count; i++)
+            {
+                if (!bugs[i].Dead)
+                    bugs[i].Draw(spriteBatch);
             }
 
             spriteBatch.End();

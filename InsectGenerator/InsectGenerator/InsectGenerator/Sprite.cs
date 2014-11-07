@@ -47,7 +47,6 @@ namespace InsectGenerator
             frameHeight = initialFrame.Height;
 
             this.origin = new Vector2(frameWidth / 2, frameHeight / 2);
-
             tag = null;
 
         }

@@ -8,7 +8,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\background.xnb</Output>
-      <Time>2014-11-06T07:54:43.3524-05:00</Time>
+      <Time>2014-11-07T07:38:25.232-05:00</Time>
     </Item>
     <Item>
       <Source>spritesheet.png</Source>
@@ -17,7 +17,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\spritesheet.xnb</Output>
-      <Time>2014-11-06T07:54:43.3654-05:00</Time>
+      <Time>2014-11-07T07:38:25.243-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
