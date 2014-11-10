@@ -10,7 +10,7 @@ namespace InsectGenerator
 {
     enum BugMoods
     {
-        Timid,
+        Waiting,
         Angry,
         Normal,
         Dead
@@ -67,8 +67,10 @@ namespace InsectGenerator
                     Velocity = vel;
                 }
 
-                
-
+                if (mood == BugMoods.Waiting)
+                {
+                    this.velocity /= 4;
+                }
 
             }
             
@@ -81,11 +83,12 @@ namespace InsectGenerator
         {
             if (Dead) return;
 
+            //this.Rotation = (float)rand.Next(0, 360) * MathHelper.Pi / 180f;
             this.frames[0] = new Rectangle(0, 128, 128, 128);
             this.Velocity *= new Vector2(0, 0);
             this.Dead = true;
             this.Location -= new Vector2(32, 32);
-            this.Rotation = (float)rand.Next(0, 360) * MathHelper.Pi / 180f;
+            
            
         }
         public override void Draw(SpriteBatch spriteBatch)

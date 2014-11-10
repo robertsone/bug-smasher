@@ -58,7 +58,7 @@ namespace InsectGenerator
             Vector2 velocity = new Vector2(X, Y);
             velocity.Normalize();
             velocity *= 200;
-            
+
             Bug bug = new Bug(location, spritesheet, new Rectangle(64 * bugX, 64 * bugY, 64, 64), velocity);
             bugs.Add(bug);
         }
@@ -70,12 +70,13 @@ namespace InsectGenerator
             spritesheet = Content.Load<Texture2D>("spritesheet");
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            
 
             for (int x = 0; x < 10; x++)
             {
                 for (int y = 0; y < 10; y++)
                 {
-                    SpawnBug(new Vector2(-50 - (x*100) + rand.Next(-60, 60), 10 + y * 45 + rand.Next(-10, 10)));
+                    SpawnBug(new Vector2(-50 - (x*100) + rand.Next(-60, 60), 100 + y * 45 + rand.Next(-10, 10)));
                 }
             }
 
@@ -105,6 +106,7 @@ namespace InsectGenerator
             MouseState ms = Mouse.GetState();
             IsMouseVisible = true;
             leftMouseClicked = false;
+            Canclick = true;
 
             if (ms.LeftButton != ButtonState.Pressed)
             {
@@ -141,29 +143,30 @@ namespace InsectGenerator
                 if(bugs[i].IsBoxColliding(mouserectangle) && leftMouseClicked == true && !bugs[i].Dead)
                 {
                     bugs[i].Change();
+                    SpawnBug(new Vector2(rand.Next(-160, -64), rand.Next(20, 400)));
                 }
-               
 
+                int toremove = -1;
                 for (int j = 0; j < bugs.Count; j++)
                 {
                    
                     if (bugs[i].IsBoxColliding(bugs[j].BoundingBoxRect))
                     {
-                        bugs[i].mood = BugMoods.Angry;
+                        
                     }
                 }
 
                 for (int j = 0; j < bugs.Count; j++)
                 {
-                    if (bugs[i].IsBoxColliding(bugs[j].BoundingBoxRect))
+                    if (i == j || bugs[j].Dead || bugs[i].Dead)
+                        continue;
+
+                    float dist = Vector2.Distance(bugs[i].Center, bugs[j].Center);
+
+                    if (dist < 50 && bugs[i].Center.X < bugs[j].Center.X)
                     {
-
-                        
-
-                        
-                            
+                        bugs[i].mood = BugMoods.Waiting;
                     }
-
                    
                 }
                 /*if (bugs[j].Velocity.Y > 0 && bugs[i].Velocity.Y>0)
@@ -174,19 +177,46 @@ namespace InsectGenerator
                         {
                             bugs[i].Velocity *= new Vector2(1, -1);
                         }*/
+                
 
                 if (bugs[i].Location.X > this.Window.ClientBounds.Width + 100)
                 {
-                    bugs.Remove(bugs[i]);
+                    toremove = i;
                     SpawnBug(new Vector2(rand.Next(-160, -64), rand.Next(20, 400)));
                     
                 }
+
+                if (toremove != -1)
+                    bugs.Remove(bugs[toremove]);
      
             }
 
-            
-            
 
+            int num = 0;
+            for (int i = 0; i < bugs.Count; i++)
+            {
+                
+                if (bugs[i].Dead==true)
+                {
+                    num++;
+                    if (num >= 10)
+                    {
+                        for (int j = 0; j < bugs.Count; j++)
+                        {
+                            if (bugs[j].Dead)
+                            {
+                                bugs[j].TintColor *= 0.999f;
+                                if (bugs[j].TintColor.A < 5f)
+                                    bugs.Remove(bugs[j]);
+
+                                break;
+                            }
+
+                        }
+                    }
+                }
+                
+            }
 
 
 
@@ -211,7 +241,7 @@ namespace InsectGenerator
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             spriteBatch.Begin();
-            spriteBatch.Draw(background, new Rectangle(0, 0, this.Window.ClientBounds.Width, this.Window.ClientBounds.Height), Color.White); // Draw the background at (0,0) - no crazy tinting
+            spriteBatch.Draw(background, new Rectangle(0, 0, this.Window.ClientBounds.Width, this.Window.ClientBounds.Height), Color.White); 
 
 
             for (int i = 0; i < bugs.Count; i++)
@@ -225,6 +255,8 @@ namespace InsectGenerator
                 if (!bugs[i].Dead)
                     bugs[i].Draw(spriteBatch);
             }
+
+            (new Sprite(new Vector2(163, 00), spritesheet, new Rectangle(0, 300, 512, 80), new Vector2(0, 0))).Draw(spriteBatch);
 
             spriteBatch.End();
 
