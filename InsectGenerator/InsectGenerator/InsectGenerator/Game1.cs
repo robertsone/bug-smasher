@@ -24,6 +24,8 @@ namespace InsectGenerator
         int bugNum = 100;
         bool Canclick = true;
         bool leftMouseClicked=false;
+        int powerups = 0;
+        List<Sprite> bars = new List<Sprite>();
 
         public Game1()
         {
@@ -43,7 +45,6 @@ namespace InsectGenerator
 
             base.Initialize();
         }
-
         public void SpawnBug(Vector2 location)
         {
             int bugX = rand.Next(0, 3);
@@ -70,7 +71,8 @@ namespace InsectGenerator
             spritesheet = Content.Load<Texture2D>("spritesheet");
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            
+            EffectManager.Initialize(graphics, Content);
+            EffectManager.LoadContent();
 
             for (int x = 0; x < 10; x++)
             {
@@ -104,9 +106,9 @@ namespace InsectGenerator
 
 
             MouseState ms = Mouse.GetState();
-            IsMouseVisible = true;
+            IsMouseVisible = false;
             leftMouseClicked = false;
-            Canclick = true;
+            //Canclick = true;
 
             if (ms.LeftButton != ButtonState.Pressed)
             {
@@ -118,10 +120,19 @@ namespace InsectGenerator
             {
                 leftMouseClicked = true;
                 Canclick = false;
+                if (powerups >= 1)
+                {
+                    powerups--;
+                    EffectManager.Effect("BasicExplosionWithTrails2").Trigger(new Vector2(ms.X + 16, ms.Y + 16));
+                }
                 
             }
-            
-             
+
+            if (powerups >= 1)
+            {
+                EffectManager.Effect("StarTrail").Trigger(new Vector2(rand.Next(100,700), rand.Next(0,30)));
+                
+            }
            
             for (int i = 0; i < bugs.Count; i++)
             {
@@ -139,11 +150,31 @@ namespace InsectGenerator
                     //bugs[i].FlipHorizontal = true; 
                 }
 
-                Rectangle mouserectangle = new Rectangle (ms.X, ms.Y, 1,1);
+                Rectangle mouserectangle = new Rectangle(ms.X, ms.Y, 1, 1);
+                if (powerups >= 1)
+                {
+                    mouserectangle = new Rectangle(ms.X - 64, ms.Y - 64, 128, 128);
+                }
                 if(bugs[i].IsBoxColliding(mouserectangle) && leftMouseClicked == true && !bugs[i].Dead)
                 {
                     bugs[i].Change();
+                    EffectManager.Effect("Ship Cannon Fire").Trigger(new Vector2(bugs[i].Center.X+32, bugs[i].Center.Y+32));
+
                     SpawnBug(new Vector2(rand.Next(-160, -64), rand.Next(20, 400)));
+                    if (bars.Count > 0)
+                    {
+                        bars.Add(new Sprite(new Vector2(bars[bars.Count - 1].BoundingBoxRect.X + 7, 19), spritesheet, new Rectangle(30, 382, 10, 64), new Vector2(0, 0)));
+                        if (bars[bars.Count - 1].BoundingBoxRect.X >= 577)
+                        {
+                            List<Sprite> it = new List<Sprite>();
+                            bars = it;
+                            powerups += 10;
+                        }
+                        
+                    }
+                    else
+                        bars.Add(new Sprite(new Vector2(213, 19), spritesheet, new Rectangle(30, 382, 10, 64), new Vector2(0, 0)));
+                        
                 }
 
                 int toremove = -1;
@@ -219,7 +250,7 @@ namespace InsectGenerator
             }
 
 
-
+            EffectManager.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -255,10 +286,30 @@ namespace InsectGenerator
                 if (!bugs[i].Dead)
                     bugs[i].Draw(spriteBatch);
             }
+            MouseState ms = Mouse.GetState();
+            Rectangle mouserectangle = new Rectangle(ms.X, ms.Y, 1, 1);
 
-            (new Sprite(new Vector2(163, 00), spritesheet, new Rectangle(0, 300, 512, 80), new Vector2(0, 0))).Draw(spriteBatch);
 
+
+            (new Sprite(new Vector2(163, 00), spritesheet, new Rectangle(0, 301, 512, 80), new Vector2(0, 0))).Draw(spriteBatch);
+
+            Sprite start = (new Sprite(new Vector2(193, 19), spritesheet, new Rectangle(0, 382, 30, 50), new Vector2(0, 0)));
+            start.Draw(spriteBatch);
+
+            for (int i = 0; i < bars.Count; i++)
+            {
+                bars[i].Draw(spriteBatch);
+            }
+
+            if (bars.Count==0) 
+                (new Sprite(new Vector2(start.BoundingBoxRect.X+start.BoundingBoxRect.Width-10, start.BoundingBoxRect.Y), spritesheet, new Rectangle(60, 382, 64, 64), new Vector2(0, 0))).Draw(spriteBatch);
+            else
+                (new Sprite(new Vector2(bars[bars.Count-1].BoundingBoxRect.X + 6 , start.BoundingBoxRect.Y), spritesheet, new Rectangle(60, 382, 64, 64), new Vector2(0, 0))).Draw(spriteBatch);
+            
+            (new Sprite(new Vector2(mouserectangle.X - 32, mouserectangle.Y - 32), spritesheet, new Rectangle(143, 64 * 3, 64, 64), new Vector2(0, 0))).Draw(spriteBatch);
             spriteBatch.End();
+
+            EffectManager.Draw();
 
             base.Draw(gameTime);
         }

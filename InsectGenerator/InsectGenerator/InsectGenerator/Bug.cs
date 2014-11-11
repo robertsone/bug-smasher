@@ -93,9 +93,9 @@ namespace InsectGenerator
         }
         public override void Draw(SpriteBatch spriteBatch)
         {
-            
             /*if (mood == BugMoods.Angry)
-            {
+            {            
+
                 this.TintColor = Color.Red;
                 this.Velocity *= new Vector2(1.1f, 1f);
 
