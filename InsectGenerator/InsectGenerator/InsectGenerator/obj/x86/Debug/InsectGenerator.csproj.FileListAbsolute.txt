@@ -61,3 +61,5 @@ C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\Ins
 C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\EffectLibrary\StarTrail.xnb
 C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\EffectLibrary\WaterJet.xnb
 C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\ProjectMercury.dll
+C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Save-Toshi-Pause-menu.xnb
+C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\pause.xnb

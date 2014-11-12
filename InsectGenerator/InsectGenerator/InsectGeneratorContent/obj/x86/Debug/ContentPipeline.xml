@@ -8,7 +8,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\background.xnb</Output>
-      <Time>2014-11-11T07:19:31.4736-05:00</Time>
+      <Time>2014-11-12T07:22:04.988-05:00</Time>
     </Item>
     <Item>
       <Source>spritesheet.png</Source>
@@ -17,7 +17,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\spritesheet.xnb</Output>
-      <Time>2014-11-11T07:19:31.4786-05:00</Time>
+      <Time>2014-11-12T07:49:33.057-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\Beam.png</Source>
@@ -26,7 +26,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Textures\Beam.xnb</Output>
-      <Time>2011-04-29T12:01:34-04:00</Time>
+      <Time>2014-11-12T07:22:04.967-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\BeamBlurred.png</Source>
@@ -35,7 +35,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Textures\BeamBlurred.xnb</Output>
-      <Time>2011-04-29T12:01:34-04:00</Time>
+      <Time>2014-11-12T07:22:04.967-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\Cloud001.png</Source>
@@ -44,7 +44,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Textures\Cloud001.xnb</Output>
-      <Time>2011-04-29T12:01:34-04:00</Time>
+      <Time>2014-11-12T07:22:04.967-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\Cloud002.png</Source>
@@ -53,7 +53,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Textures\Cloud002.xnb</Output>
-      <Time>2011-04-29T12:01:34-04:00</Time>
+      <Time>2014-11-12T07:22:04.968-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\Cloud003.png</Source>
@@ -62,7 +62,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Textures\Cloud003.xnb</Output>
-      <Time>2011-04-29T12:01:34-04:00</Time>
+      <Time>2014-11-12T07:22:04.968-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\Cloud004.png</Source>
@@ -71,7 +71,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Textures\Cloud004.xnb</Output>
-      <Time>2011-04-29T12:01:34-04:00</Time>
+      <Time>2014-11-12T07:22:04.969-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\Crosshair2.png</Source>
@@ -80,7 +80,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Textures\Crosshair2.xnb</Output>
-      <Time>2011-05-10T13:15:52-04:00</Time>
+      <Time>2014-11-12T07:22:04.969-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\Flame.png</Source>
@@ -89,7 +89,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Textures\Flame.xnb</Output>
-      <Time>2011-04-29T12:01:34-04:00</Time>
+      <Time>2014-11-12T07:22:04.97-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\FlowerBurst.png</Source>
@@ -98,7 +98,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Textures\FlowerBurst.xnb</Output>
-      <Time>2011-04-29T12:01:34-04:00</Time>
+      <Time>2014-11-12T07:22:04.97-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\Laser.png</Source>
@@ -107,7 +107,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Textures\Laser.xnb</Output>
-      <Time>2011-04-29T12:01:36-04:00</Time>
+      <Time>2014-11-12T07:22:04.97-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\LensFlare.png</Source>
@@ -116,7 +116,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Textures\LensFlare.xnb</Output>
-      <Time>2011-04-29T12:01:34-04:00</Time>
+      <Time>2014-11-12T07:22:04.971-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\light.png</Source>
@@ -125,7 +125,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Textures\light.xnb</Output>
-      <Time>2011-05-03T00:37:12-04:00</Time>
+      <Time>2014-11-12T07:22:04.982-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\MultiDot.png</Source>
@@ -134,7 +134,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Textures\MultiDot.xnb</Output>
-      <Time>2011-04-29T12:01:34-04:00</Time>
+      <Time>2014-11-12T07:22:04.971-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\Particle001.png</Source>
@@ -143,7 +143,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Textures\Particle001.xnb</Output>
-      <Time>2011-04-29T12:01:34-04:00</Time>
+      <Time>2014-11-12T07:22:04.971-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\Particle002.png</Source>
@@ -152,7 +152,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Textures\Particle002.xnb</Output>
-      <Time>2011-04-29T12:01:34-04:00</Time>
+      <Time>2014-11-12T07:22:04.972-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\Particle003.png</Source>
@@ -161,7 +161,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Textures\Particle003.xnb</Output>
-      <Time>2011-04-29T12:01:34-04:00</Time>
+      <Time>2014-11-12T07:22:04.972-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\Particle004.png</Source>
@@ -170,7 +170,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Textures\Particle004.xnb</Output>
-      <Time>2011-04-29T12:01:34-04:00</Time>
+      <Time>2014-11-12T07:22:04.973-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\Particle005.png</Source>
@@ -179,7 +179,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Textures\Particle005.xnb</Output>
-      <Time>2011-04-29T12:01:34-04:00</Time>
+      <Time>2014-11-12T07:22:04.973-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\Particle006.png</Source>
@@ -188,7 +188,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Textures\Particle006.xnb</Output>
-      <Time>2011-04-29T12:01:34-04:00</Time>
+      <Time>2014-11-12T07:22:04.973-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\Particle007.png</Source>
@@ -197,7 +197,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Textures\Particle007.xnb</Output>
-      <Time>2011-04-29T12:01:34-04:00</Time>
+      <Time>2014-11-12T07:22:04.974-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\Ring001.png</Source>
@@ -206,7 +206,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Textures\Ring001.xnb</Output>
-      <Time>2011-04-29T12:01:34-04:00</Time>
+      <Time>2014-11-12T07:22:04.975-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\Ring002.png</Source>
@@ -215,7 +215,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Textures\Ring002.xnb</Output>
-      <Time>2011-04-29T12:01:34-04:00</Time>
+      <Time>2014-11-12T07:22:04.976-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\SoftClumpy.png</Source>
@@ -224,7 +224,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Textures\SoftClumpy.xnb</Output>
-      <Time>2011-04-29T12:01:34-04:00</Time>
+      <Time>2014-11-12T07:22:04.976-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\SoftSmokey.png</Source>
@@ -233,7 +233,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Textures\SoftSmokey.xnb</Output>
-      <Time>2011-04-29T12:01:34-04:00</Time>
+      <Time>2014-11-12T07:22:04.977-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\Spikey001.png</Source>
@@ -242,7 +242,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Textures\Spikey001.xnb</Output>
-      <Time>2011-04-29T12:01:34-04:00</Time>
+      <Time>2014-11-12T07:22:04.978-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\Spikey002.png</Source>
@@ -251,7 +251,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Textures\Spikey002.xnb</Output>
-      <Time>2011-04-29T12:01:34-04:00</Time>
+      <Time>2014-11-12T07:22:04.978-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\Splash.png</Source>
@@ -260,7 +260,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Textures\Splash.xnb</Output>
-      <Time>2011-04-29T12:01:34-04:00</Time>
+      <Time>2014-11-12T07:22:04.979-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\Spray001.png</Source>
@@ -269,7 +269,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Textures\Spray001.xnb</Output>
-      <Time>2011-04-29T12:01:34-04:00</Time>
+      <Time>2014-11-12T07:22:04.979-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\Star.png</Source>
@@ -278,7 +278,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Textures\Star.xnb</Output>
-      <Time>2011-04-29T12:01:34-04:00</Time>
+      <Time>2014-11-12T07:22:04.98-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\Water001.png</Source>
@@ -287,7 +287,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Textures\Water001.xnb</Output>
-      <Time>2011-04-29T12:01:34-04:00</Time>
+      <Time>2014-11-12T07:22:04.98-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\Water002.png</Source>
@@ -296,7 +296,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Textures\Water002.xnb</Output>
-      <Time>2011-04-29T12:01:34-04:00</Time>
+      <Time>2014-11-12T07:22:04.98-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\Weeds.png</Source>
@@ -305,7 +305,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Textures\Weeds.xnb</Output>
-      <Time>2011-04-29T12:01:34-04:00</Time>
+      <Time>2014-11-12T07:22:04.981-05:00</Time>
     </Item>
     <Item>
       <Source>EffectLibrary\BasicExplosion.xml</Source>
@@ -314,7 +314,7 @@
       <Processor>PassThroughProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\EffectLibrary\BasicExplosion.xnb</Output>
-      <Time>2011-03-21T16:39:00-04:00</Time>
+      <Time>2014-11-12T07:22:04.938-05:00</Time>
     </Item>
     <Item>
       <Source>EffectLibrary\BasicExplosionWithHalo.xml</Source>
@@ -323,7 +323,7 @@
       <Processor>PassThroughProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\EffectLibrary\BasicExplosionWithHalo.xnb</Output>
-      <Time>2011-05-02T08:08:06-04:00</Time>
+      <Time>2014-11-12T07:22:04.952-05:00</Time>
     </Item>
     <Item>
       <Source>EffectLibrary\BasicExplosionWithTrails2.xml</Source>
@@ -332,7 +332,7 @@
       <Processor>PassThroughProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\EffectLibrary\BasicExplosionWithTrails2.xnb</Output>
-      <Time>2011-05-02T08:26:00-04:00</Time>
+      <Time>2014-11-12T07:22:04.953-05:00</Time>
     </Item>
     <Item>
       <Source>EffectLibrary\BasicFireball.xml</Source>
@@ -341,7 +341,7 @@
       <Processor>PassThroughProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\EffectLibrary\BasicFireball.xnb</Output>
-      <Time>2011-03-21T16:40:00-04:00</Time>
+      <Time>2014-11-12T07:22:04.954-05:00</Time>
     </Item>
     <Item>
       <Source>EffectLibrary\BasicSmokePlume.xml</Source>
@@ -350,7 +350,7 @@
       <Processor>PassThroughProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\EffectLibrary\BasicSmokePlume.xnb</Output>
-      <Time>2011-03-21T16:40:00-04:00</Time>
+      <Time>2014-11-12T07:22:04.954-05:00</Time>
     </Item>
     <Item>
       <Source>EffectLibrary\BeamMeUp.xml</Source>
@@ -359,7 +359,7 @@
       <Processor>PassThroughProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\EffectLibrary\BeamMeUp.xnb</Output>
-      <Time>2011-03-21T16:40:00-04:00</Time>
+      <Time>2014-11-12T07:22:04.955-05:00</Time>
     </Item>
     <Item>
       <Source>EffectLibrary\CampFire.xml</Source>
@@ -368,7 +368,7 @@
       <Processor>PassThroughProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\EffectLibrary\CampFire.xnb</Output>
-      <Time>2011-03-21T16:41:00-04:00</Time>
+      <Time>2014-11-12T07:22:04.955-05:00</Time>
     </Item>
     <Item>
       <Source>EffectLibrary\Enemy Cannon Fire.xml</Source>
@@ -377,7 +377,7 @@
       <Processor>PassThroughProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\EffectLibrary\Enemy Cannon Fire.xnb</Output>
-      <Time>2011-05-02T08:37:52-04:00</Time>
+      <Time>2014-11-12T07:22:04.956-05:00</Time>
     </Item>
     <Item>
       <Source>EffectLibrary\FlowerBloom.xml</Source>
@@ -386,7 +386,7 @@
       <Processor>PassThroughProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\EffectLibrary\FlowerBloom.xnb</Output>
-      <Time>2011-03-21T16:41:00-04:00</Time>
+      <Time>2014-11-12T07:22:04.957-05:00</Time>
     </Item>
     <Item>
       <Source>EffectLibrary\MagicTrail.xml</Source>
@@ -395,7 +395,7 @@
       <Processor>PassThroughProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\EffectLibrary\MagicTrail.xnb</Output>
-      <Time>2011-03-21T16:41:00-04:00</Time>
+      <Time>2014-11-12T07:22:04.957-05:00</Time>
     </Item>
     <Item>
       <Source>EffectLibrary\MeteroidCollision.xml</Source>
@@ -404,7 +404,7 @@
       <Processor>PassThroughProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\EffectLibrary\MeteroidCollision.xnb</Output>
-      <Time>2011-04-29T14:46:16-04:00</Time>
+      <Time>2014-11-12T07:22:04.958-05:00</Time>
     </Item>
     <Item>
       <Source>EffectLibrary\MeteroidExplode.xml</Source>
@@ -413,7 +413,7 @@
       <Processor>PassThroughProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\EffectLibrary\MeteroidExplode.xnb</Output>
-      <Time>2011-04-29T16:42:04-04:00</Time>
+      <Time>2014-11-12T07:22:04.959-05:00</Time>
     </Item>
     <Item>
       <Source>EffectLibrary\Paparazzi.xml</Source>
@@ -422,7 +422,7 @@
       <Processor>PassThroughProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\EffectLibrary\Paparazzi.xnb</Output>
-      <Time>2011-03-21T16:41:00-04:00</Time>
+      <Time>2014-11-12T07:22:04.959-05:00</Time>
     </Item>
     <Item>
       <Source>EffectLibrary\PulseTracker.xml</Source>
@@ -431,7 +431,7 @@
       <Processor>PassThroughProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\EffectLibrary\PulseTracker.xnb</Output>
-      <Time>2011-05-11T15:35:24-04:00</Time>
+      <Time>2014-11-12T07:22:04.96-05:00</Time>
     </Item>
     <Item>
       <Source>EffectLibrary\ShieldBounce.xml</Source>
@@ -440,7 +440,7 @@
       <Processor>PassThroughProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\EffectLibrary\ShieldBounce.xnb</Output>
-      <Time>2011-05-04T22:54:48-04:00</Time>
+      <Time>2014-11-12T07:22:04.96-05:00</Time>
     </Item>
     <Item>
       <Source>EffectLibrary\ShieldsUp.xml</Source>
@@ -449,7 +449,7 @@
       <Processor>PassThroughProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\EffectLibrary\ShieldsUp.xnb</Output>
-      <Time>2011-05-04T15:47:30-04:00</Time>
+      <Time>2014-11-12T07:22:04.961-05:00</Time>
     </Item>
     <Item>
       <Source>EffectLibrary\Ship Cannon Fire.xml</Source>
@@ -458,7 +458,7 @@
       <Processor>PassThroughProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\EffectLibrary\Ship Cannon Fire.xnb</Output>
-      <Time>2011-05-04T10:53:38-04:00</Time>
+      <Time>2014-11-12T07:22:04.961-05:00</Time>
     </Item>
     <Item>
       <Source>EffectLibrary\ShipSmokeTrail.xml</Source>
@@ -467,7 +467,7 @@
       <Processor>PassThroughProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\EffectLibrary\ShipSmokeTrail.xnb</Output>
-      <Time>2011-04-29T15:51:50-04:00</Time>
+      <Time>2014-11-12T07:22:04.962-05:00</Time>
     </Item>
     <Item>
       <Source>EffectLibrary\SimpleRain.xml</Source>
@@ -476,7 +476,7 @@
       <Processor>PassThroughProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\EffectLibrary\SimpleRain.xnb</Output>
-      <Time>2011-03-21T16:41:00-04:00</Time>
+      <Time>2014-11-12T07:22:04.964-05:00</Time>
     </Item>
     <Item>
       <Source>EffectLibrary\StarFireImpact.xml</Source>
@@ -485,7 +485,7 @@
       <Processor>PassThroughProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\EffectLibrary\StarFireImpact.xnb</Output>
-      <Time>2011-04-29T16:40:40-04:00</Time>
+      <Time>2014-11-12T07:22:04.964-05:00</Time>
     </Item>
     <Item>
       <Source>EffectLibrary\StarTrail.xml</Source>
@@ -494,7 +494,7 @@
       <Processor>PassThroughProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\EffectLibrary\StarTrail.xnb</Output>
-      <Time>2011-03-21T16:42:00-04:00</Time>
+      <Time>2014-11-12T07:22:04.965-05:00</Time>
     </Item>
     <Item>
       <Source>EffectLibrary\WaterJet.xml</Source>
@@ -503,7 +503,25 @@
       <Processor>PassThroughProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\EffectLibrary\WaterJet.xnb</Output>
-      <Time>2011-03-21T16:42:00-04:00</Time>
+      <Time>2014-11-12T07:22:04.965-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Save-Toshi-Pause-menu.jpg</Source>
+      <Name>Save-Toshi-Pause-menu</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Save-Toshi-Pause-menu.xnb</Output>
+      <Time>2014-11-12T08:16:51.447-05:00</Time>
+    </Item>
+    <Item>
+      <Source>pause.png</Source>
+      <Name>pause</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\pause.xnb</Output>
+      <Time>2014-11-12T07:58:51.421-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -519,7 +537,7 @@
     <Assemblies>
       <Assembly>
         <Key>C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\ProjectMercury.ContentPipeline.dll</Key>
-        <Value>2011-04-29T12:08:36-04:00</Value>
+        <Value>2014-11-12T07:22:04.996-05:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>

@@ -54,3 +54,5 @@ Content\EffectLibrary\SimpleRain.xnb
 Content\EffectLibrary\StarFireImpact.xnb
 Content\EffectLibrary\StarTrail.xnb
 Content\EffectLibrary\WaterJet.xnb
+Content\Save-Toshi-Pause-menu.xnb
+Content\pause.xnb

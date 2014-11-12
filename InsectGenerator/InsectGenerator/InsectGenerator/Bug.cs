@@ -13,13 +13,14 @@ namespace InsectGenerator
         Waiting,
         Angry,
         Normal,
-        Dead
+        Dead,
+        Lady
     }
 
 
     class Bug : Sprite
     {
-        public BugMoods mood = BugMoods.Normal;
+        
         public bool Dead = false;
 
         private Random rand = new Random((int)DateTime.UtcNow.Ticks);
@@ -78,6 +79,11 @@ namespace InsectGenerator
 
 
             base.Update(gameTime);
+        }
+        public void makelady()
+        {
+            mood = BugMoods.Lady;
+            this.frames[0] = new Rectangle(122, 131, 64, 64);
         }
         public void Change()
         {

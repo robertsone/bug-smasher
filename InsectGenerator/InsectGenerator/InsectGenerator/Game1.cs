@@ -15,7 +15,7 @@ namespace InsectGenerator
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Texture2D background, spritesheet;
+        Texture2D background, spritesheet, pause, button;
         Random rand = new Random(System.Environment.TickCount);
         float timeRemaining = 0.0f;
         float timeTotal = 0.3f;
@@ -26,7 +26,7 @@ namespace InsectGenerator
         bool leftMouseClicked=false;
         int powerups = 0;
         List<Sprite> bars = new List<Sprite>();
-
+        bool paused = false;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -69,6 +69,9 @@ namespace InsectGenerator
 
             background = Content.Load<Texture2D>("background");
             spritesheet = Content.Load<Texture2D>("spritesheet");
+            pause = Content.Load<Texture2D>("Save-Toshi-Pause-menu");
+            button = Content.Load<Texture2D>("pause");
+            
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             EffectManager.Initialize(graphics, Content);
@@ -109,150 +112,206 @@ namespace InsectGenerator
             IsMouseVisible = false;
             leftMouseClicked = false;
             //Canclick = true;
-
             if (ms.LeftButton != ButtonState.Pressed)
-            {
-                Canclick = true;
-                
+                {
+                    Canclick = true;
 
-            }
+
+                }
             if (ms.LeftButton == ButtonState.Pressed && Canclick == true)
             {
                 leftMouseClicked = true;
                 Canclick = false;
-                if (powerups >= 1)
-                {
-                    powerups--;
-                    EffectManager.Effect("BasicExplosionWithTrails2").Trigger(new Vector2(ms.X + 16, ms.Y + 16));
-                }
-                
             }
 
-            if (powerups >= 1)
+
+
+            if (paused == false)
             {
-                EffectManager.Effect("StarTrail").Trigger(new Vector2(rand.Next(100,700), rand.Next(0,30)));
-                
-            }
-           
-            for (int i = 0; i < bugs.Count; i++)
-            {
-                bugs[i].Update(gameTime);
-                bugs[i].mood = BugMoods.Normal;
-                if (bugs[i].Location.X > this.Window.ClientBounds.Width && bugs[i].Velocity.X > 0) 
+                if (ms.LeftButton != ButtonState.Pressed)
                 {
-                    bugs[i].Velocity *= new Vector2(-1, 1);
-                    bugs[i].FlipHorizontal = true; 
-                }
+                    Canclick = true;
 
-                if (bugs[i].Location.X > -70 && bugs[i].Velocity.X < 0)
-                {
-                    bugs[i].Velocity *= new Vector2(-1, 1);
-                    //bugs[i].FlipHorizontal = true; 
-                }
 
-                Rectangle mouserectangle = new Rectangle(ms.X, ms.Y, 1, 1);
-                if (powerups >= 1)
-                {
-                    mouserectangle = new Rectangle(ms.X - 64, ms.Y - 64, 128, 128);
                 }
-                if(bugs[i].IsBoxColliding(mouserectangle) && leftMouseClicked == true && !bugs[i].Dead)
+                if (leftMouseClicked)
                 {
-                    bugs[i].Change();
-                    EffectManager.Effect("Ship Cannon Fire").Trigger(new Vector2(bugs[i].Center.X+32, bugs[i].Center.Y+32));
-
-                    SpawnBug(new Vector2(rand.Next(-160, -64), rand.Next(20, 400)));
-                    if (bars.Count > 0)
+                    if (powerups >= 1)
                     {
-                        bars.Add(new Sprite(new Vector2(bars[bars.Count - 1].BoundingBoxRect.X + 7, 19), spritesheet, new Rectangle(30, 382, 10, 64), new Vector2(0, 0)));
-                        if (bars[bars.Count - 1].BoundingBoxRect.X >= 577)
+                        powerups--;
+                        EffectManager.Effect("BasicExplosionWithTrails2").Trigger(new Vector2(ms.X + 16, ms.Y + 16));
+                    }
+
+                }
+
+                if (powerups >= 1)
+                {
+                    EffectManager.Effect("StarTrail").Trigger(new Vector2(rand.Next(100, 700), rand.Next(0, 30)));
+
+                }
+
+                for (int i = 0; i < bugs.Count; i++)
+                {
+                    bugs[i].Update(gameTime);
+                    bugs[i].mood = BugMoods.Normal;
+                    if (bugs[i].Location.X > this.Window.ClientBounds.Width && bugs[i].Velocity.X > 0)
+                    {
+                        bugs[i].Velocity *= new Vector2(-1, 1);
+                        bugs[i].FlipHorizontal = true;
+                    }
+
+                    if (bugs[i].Location.X > -70 && bugs[i].Velocity.X < 0)
+                    {
+                        bugs[i].Velocity *= new Vector2(-1, 1);
+                        //bugs[i].FlipHorizontal = true; 
+                    }
+
+                    Rectangle mouserectangle = new Rectangle(ms.X, ms.Y, 1, 1);
+                    if (powerups >= 1)
+                    {
+                        mouserectangle = new Rectangle(ms.X - 64, ms.Y - 64, 128, 128);
+                    }
+                    if (bugs[i].IsBoxColliding(mouserectangle) && leftMouseClicked == true && !bugs[i].Dead)
+                    {
+                        if (bugs[i].mood != BugMoods.Lady)
+                        {
+
+
+                            bugs[i].Change();
+                            EffectManager.Effect("Ship Cannon Fire").Trigger(new Vector2(bugs[i].Center.X + 32, bugs[i].Center.Y + 32));
+
+                            SpawnBug(new Vector2(rand.Next(-160, -64), rand.Next(20, 400)));
+                            if (bars.Count > 0)
+                            {
+                                bars.Add(new Sprite(new Vector2(bars[bars.Count - 1].BoundingBoxRect.X + 7, 19), spritesheet, new Rectangle(30, 382, 10, 64), new Vector2(0, 0)));
+                                if (bars[bars.Count - 1].BoundingBoxRect.X >= 577)
+                                {
+                                    List<Sprite> it = new List<Sprite>();
+                                    bars = it;
+                                    powerups += 10;
+                                }
+
+                            }
+                            else
+                                bars.Add(new Sprite(new Vector2(213, 19), spritesheet, new Rectangle(30, 382, 10, 64), new Vector2(0, 0)));
+                        }
+                        else
                         {
                             List<Sprite> it = new List<Sprite>();
                             bars = it;
-                            powerups += 10;
                         }
-                        
                     }
-                    else
-                        bars.Add(new Sprite(new Vector2(213, 19), spritesheet, new Rectangle(30, 382, 10, 64), new Vector2(0, 0)));
-                        
-                }
 
-                int toremove = -1;
-                for (int j = 0; j < bugs.Count; j++)
-                {
-                   
-                    if (bugs[i].IsBoxColliding(bugs[j].BoundingBoxRect))
+                    int toremove = -1;
+                    for (int j = 0; j < bugs.Count; j++)
                     {
-                        
-                    }
-                }
 
-                for (int j = 0; j < bugs.Count; j++)
-                {
-                    if (i == j || bugs[j].Dead || bugs[i].Dead)
-                        continue;
-
-                    float dist = Vector2.Distance(bugs[i].Center, bugs[j].Center);
-
-                    if (dist < 50 && bugs[i].Center.X < bugs[j].Center.X)
-                    {
-                        bugs[i].mood = BugMoods.Waiting;
-                    }
-                   
-                }
-                /*if (bugs[j].Velocity.Y > 0 && bugs[i].Velocity.Y>0)
+                        if (bugs[i].IsBoxColliding(bugs[j].BoundingBoxRect))
                         {
-                            bugs[i].Velocity *= new Vector2(1, -1);
+
                         }
-                        else if (bugs[j].Velocity.Y < 0 && bugs[i].Velocity.Y < 0)
-                        {
-                            bugs[i].Velocity *= new Vector2(1, -1);
-                        }*/
-                
+                    }
 
-                if (bugs[i].Location.X > this.Window.ClientBounds.Width + 100)
-                {
-                    toremove = i;
-                    SpawnBug(new Vector2(rand.Next(-160, -64), rand.Next(20, 400)));
-                    
-                }
-
-                if (toremove != -1)
-                    bugs.Remove(bugs[toremove]);
-     
-            }
-
-
-            int num = 0;
-            for (int i = 0; i < bugs.Count; i++)
-            {
-                
-                if (bugs[i].Dead==true)
-                {
-                    num++;
-                    if (num >= 10)
+                    for (int j = 0; j < bugs.Count; j++)
                     {
-                        for (int j = 0; j < bugs.Count; j++)
+                        if (i == j || bugs[j].Dead || bugs[i].Dead)
+                            continue;
+
+                        float dist = Vector2.Distance(bugs[i].Center, bugs[j].Center);
+
+                        if (dist < 50 && bugs[i].Center.X < bugs[j].Center.X && bugs[i].mood!=BugMoods.Lady)
                         {
-                            if (bugs[j].Dead)
+                            bugs[i].mood = BugMoods.Waiting;
+                        }
+
+                    }
+                    /*if (bugs[j].Velocity.Y > 0 && bugs[i].Velocity.Y>0)
                             {
-                                bugs[j].TintColor *= 0.999f;
-                                if (bugs[j].TintColor.A < 5f)
-                                    bugs.Remove(bugs[j]);
-
-                                break;
+                                bugs[i].Velocity *= new Vector2(1, -1);
                             }
+                            else if (bugs[j].Velocity.Y < 0 && bugs[i].Velocity.Y < 0)
+                            {
+                                bugs[i].Velocity *= new Vector2(1, -1);
+                            }*/
 
+
+                    if (bugs[i].Location.X > this.Window.ClientBounds.Width + 100)
+                    {
+                        toremove = i;
+                        SpawnBug(new Vector2(rand.Next(-160, -64), rand.Next(20, 400)));
+                        if (rand.Next(1, 10) == 1)
+                        {
+                            bugs[bugs.Count - 1].makelady();
+
+                            
+                        }
+                        if (ms.RightButton == ButtonState.Pressed)
+                        {
+                            SpawnBug(new Vector2(rand.Next(-160, -64), rand.Next(20, 400)));
+                            SpawnBug(new Vector2(rand.Next(-160, -64), rand.Next(20, 400)));
+                            SpawnBug(new Vector2(rand.Next(-160, -64), rand.Next(20, 400)));
+                            SpawnBug(new Vector2(rand.Next(-160, -64), rand.Next(20, 400)));
+                            SpawnBug(new Vector2(rand.Next(-160, -64), rand.Next(20, 400)));
+                            SpawnBug(new Vector2(rand.Next(-160, -64), rand.Next(20, 400)));
+                            SpawnBug(new Vector2(rand.Next(-160, -64), rand.Next(20, 400)));
+                            SpawnBug(new Vector2(rand.Next(-160, -64), rand.Next(20, 400)));
+                            SpawnBug(new Vector2(rand.Next(-160, -64), rand.Next(20, 400)));
+                            SpawnBug(new Vector2(rand.Next(-160, -64), rand.Next(20, 400)));
+                        }
+
+                    }
+
+                    if (toremove != -1)
+                        bugs.Remove(bugs[toremove]);
+
+                }
+
+
+                int num = 0;
+                for (int i = 0; i < bugs.Count; i++)
+                {
+
+                    if (bugs[i].Dead == true)
+                    {
+                        num++;
+                        if (num >= 10)
+                        {
+                            for (int j = 0; j < bugs.Count; j++)
+                            {
+                                if (bugs[j].Dead)
+                                {
+                                    bugs[j].TintColor *= 0.999f;
+                                    if (bugs[j].TintColor.A < 5f)
+                                        bugs.Remove(bugs[j]);
+
+                                    break;
+                                }
+
+                            }
                         }
                     }
+
                 }
+                new Sprite(new Vector2(213, 19), spritesheet, new Rectangle(30, 382, 10, 64), new Vector2(0, 0));
+
+
+                EffectManager.Update(gameTime);
+                if (ms.X > 726 && ms.X < 800 && ms.Y > 10 && ms.Y < 74 && leftMouseClicked)
+                    paused = true;
+                base.Update(gameTime);
+            }
+            else
+            {
+                if (leftMouseClicked)
+                {
+
+                    if (ms.X > 249 && ms.X < 549 && ms.Y > 134 && ms.Y < 194)
+                        paused = false;
+                }
+                EffectManager.Effect("MagicTrail").Trigger(new Vector2(20 + rand.Next(0, 170), 300 + rand.Next(0, 150)));
+                EffectManager.Update(gameTime);
                 
             }
-
-
-            EffectManager.Update(gameTime);
-
-            base.Update(gameTime);
         }
 
         public void Method(GameTime gameTime)
@@ -272,43 +331,54 @@ namespace InsectGenerator
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             spriteBatch.Begin();
-            spriteBatch.Draw(background, new Rectangle(0, 0, this.Window.ClientBounds.Width, this.Window.ClientBounds.Height), Color.White); 
-
-
-            for (int i = 0; i < bugs.Count; i++)
+            if (paused==false)
+                spriteBatch.Draw(background, new Rectangle(0, 0, this.Window.ClientBounds.Width, this.Window.ClientBounds.Height), Color.White); 
+            else
+                spriteBatch.Draw(pause, new Rectangle(0, 0, this.Window.ClientBounds.Width, this.Window.ClientBounds.Height), Color.White);
+            if (!paused)
             {
-                if (bugs[i].Dead)
-                    bugs[i].Draw(spriteBatch);
-            }
+                for (int i = 0; i < bugs.Count; i++)
+                {
+                    if (bugs[i].Dead)
+                        bugs[i].Draw(spriteBatch);
+                }
 
-            for (int i = 0; i < bugs.Count; i++)
-            {
-                if (!bugs[i].Dead)
-                    bugs[i].Draw(spriteBatch);
+                for (int i = 0; i < bugs.Count; i++)
+                {
+                    if (!bugs[i].Dead)
+                        bugs[i].Draw(spriteBatch);
+                }
             }
             MouseState ms = Mouse.GetState();
             Rectangle mouserectangle = new Rectangle(ms.X, ms.Y, 1, 1);
 
 
 
-            (new Sprite(new Vector2(163, 00), spritesheet, new Rectangle(0, 301, 512, 80), new Vector2(0, 0))).Draw(spriteBatch);
-
-            Sprite start = (new Sprite(new Vector2(193, 19), spritesheet, new Rectangle(0, 382, 30, 50), new Vector2(0, 0)));
-            start.Draw(spriteBatch);
-
-            for (int i = 0; i < bars.Count; i++)
-            {
-                bars[i].Draw(spriteBatch);
-            }
-
-            if (bars.Count==0) 
-                (new Sprite(new Vector2(start.BoundingBoxRect.X+start.BoundingBoxRect.Width-10, start.BoundingBoxRect.Y), spritesheet, new Rectangle(60, 382, 64, 64), new Vector2(0, 0))).Draw(spriteBatch);
-            else
-                (new Sprite(new Vector2(bars[bars.Count-1].BoundingBoxRect.X + 6 , start.BoundingBoxRect.Y), spritesheet, new Rectangle(60, 382, 64, 64), new Vector2(0, 0))).Draw(spriteBatch);
             
+            
+
+            if (paused == false)
+            {
+                (new Sprite(new Vector2(163, 00), spritesheet, new Rectangle(0, 301, 512, 80), new Vector2(0, 0))).Draw(spriteBatch);
+
+                Sprite start = (new Sprite(new Vector2(193, 19), spritesheet, new Rectangle(0, 382, 30, 50), new Vector2(0, 0)));
+                start.Draw(spriteBatch);
+                for (int i = 0; i < bars.Count; i++)
+                {
+                    bars[i].Draw(spriteBatch);
+                }
+
+                if (bars.Count == 0)
+                    (new Sprite(new Vector2(start.BoundingBoxRect.X + start.BoundingBoxRect.Width - 10, start.BoundingBoxRect.Y), spritesheet, new Rectangle(60, 382, 64, 64), new Vector2(0, 0))).Draw(spriteBatch);
+                else
+                    (new Sprite(new Vector2(bars[bars.Count - 1].BoundingBoxRect.X + 6, start.BoundingBoxRect.Y), spritesheet, new Rectangle(60, 382, 64, 64), new Vector2(0, 0))).Draw(spriteBatch);
+
+                (new Sprite(new Vector2(500, 20), spritesheet, new Rectangle(356, 64, 70, 70), new Vector2(0, 0))).Draw(spriteBatch);
+                spriteBatch.Draw(button, new Rectangle(726, 10, 64, 64), Color.White);
+            }
+             
             (new Sprite(new Vector2(mouserectangle.X - 32, mouserectangle.Y - 32), spritesheet, new Rectangle(143, 64 * 3, 64, 64), new Vector2(0, 0))).Draw(spriteBatch);
             spriteBatch.End();
-
             EffectManager.Draw();
 
             base.Draw(gameTime);
