@@ -221,7 +221,8 @@ namespace InsectGenerator
 
                         if (dist < 50 && bugs[i].Center.X < bugs[j].Center.X && bugs[i].mood!=BugMoods.Lady)
                         {
-                            bugs[i].mood = BugMoods.Waiting;
+
+                            bugs[i].wait();
                         }
 
                     }

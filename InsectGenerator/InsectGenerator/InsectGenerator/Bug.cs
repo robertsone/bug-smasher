@@ -20,7 +20,7 @@ namespace InsectGenerator
 
     class Bug : Sprite
     {
-        
+        public BugMoods mood = BugMoods.Normal;
         public bool Dead = false;
 
         private Random rand = new Random((int)DateTime.UtcNow.Ticks);
@@ -79,6 +79,13 @@ namespace InsectGenerator
 
 
             base.Update(gameTime);
+        }
+        public void wait()
+        {
+            if (this.frames[0] != new Rectangle(122, 131, 64, 64))
+            {
+                mood = BugMoods.Waiting;
+            }
         }
         public void makelady()
         {
