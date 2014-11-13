@@ -18,7 +18,6 @@ namespace InsectGenerator
         Texture2D background, spritesheet, pause, button;
         Random rand = new Random(System.Environment.TickCount);
         float timeRemaining = 0.0f;
-        float timeTotal = 0.3f;
         float TimePerUpdate = 2.00f;
         List<Bug> bugs = new List<Bug>();
         int bugNum = 100;
@@ -27,7 +26,10 @@ namespace InsectGenerator
         int powerups = 0;
         List<Sprite> bars = new List<Sprite>();
         bool paused = false;
+        Color color = Color.Transparent;
+        Sprite end;
         public Game1()
+        
         {
             graphics = new GraphicsDeviceManager(this);
 
@@ -139,21 +141,22 @@ namespace InsectGenerator
                     if (powerups >= 1)
                     {
                         powerups--;
-                        EffectManager.Effect("BasicExplosionWithTrails2").Trigger(new Vector2(ms.X + 16, ms.Y + 16));
+                        EffectManager.Effect("BasicExplosionWithHalo").Trigger(new Vector2(ms.X + 16, ms.Y + 16)); EffectManager.Effect("BasicExplosionWithHalo").Trigger(new Vector2(ms.X + 16, ms.Y + 16));
+                        EffectManager.Effect("BasicExplosionWithHalo").Trigger(new Vector2(ms.X + 16, ms.Y + 16)); EffectManager.Effect("BasicExplosionWithHalo").Trigger(new Vector2(ms.X + 16, ms.Y + 16));
+                        EffectManager.Effect("BasicExplosionWithHalo").Trigger(new Vector2(ms.X + 16, ms.Y + 16)); EffectManager.Effect("BasicExplosionWithHalo").Trigger(new Vector2(ms.X + 16, ms.Y + 16));
+
                     }
-
-                }
-
-                if (powerups >= 1)
-                {
-                    EffectManager.Effect("StarTrail").Trigger(new Vector2(rand.Next(100, 700), rand.Next(0, 30)));
 
                 }
 
                 for (int i = 0; i < bugs.Count; i++)
                 {
+
                     bugs[i].Update(gameTime);
-                    bugs[i].mood = BugMoods.Normal;
+                    if (bugs[i].mood != BugMoods.Lady)
+                    {
+                        bugs[i].mood = BugMoods.Normal;
+                    }
                     if (bugs[i].Location.X > this.Window.ClientBounds.Width && bugs[i].Velocity.X > 0)
                     {
                         bugs[i].Velocity *= new Vector2(-1, 1);
@@ -173,12 +176,21 @@ namespace InsectGenerator
                     }
                     if (bugs[i].IsBoxColliding(mouserectangle) && leftMouseClicked == true && !bugs[i].Dead)
                     {
-                        if (bugs[i].mood != BugMoods.Lady)
+                        if (bugs[i].mood == BugMoods.Lady)
                         {
+                            List<Sprite> it = new List<Sprite>();
+                            bars = it;
+                            EffectManager.Effect("PulseTracker").Trigger(new Vector2(bugs[i].Center.X, bugs[i].Center.Y));
+
+                        }
+                        else
+                            EffectManager.Effect("Ship Cannon Fire").Trigger(new Vector2(bugs[i].Center.X, bugs[i].Center.Y));
+
+                        
 
 
                             bugs[i].Change();
-                            EffectManager.Effect("Ship Cannon Fire").Trigger(new Vector2(bugs[i].Center.X + 32, bugs[i].Center.Y + 32));
+                            
 
                             SpawnBug(new Vector2(rand.Next(-160, -64), rand.Next(20, 400)));
                             if (bars.Count > 0)
@@ -194,12 +206,7 @@ namespace InsectGenerator
                             }
                             else
                                 bars.Add(new Sprite(new Vector2(213, 19), spritesheet, new Rectangle(30, 382, 10, 64), new Vector2(0, 0)));
-                        }
-                        else
-                        {
-                            List<Sprite> it = new List<Sprite>();
-                            bars = it;
-                        }
+                        
                     }
 
                     int toremove = -1;
@@ -314,7 +321,21 @@ namespace InsectGenerator
                 
             }
         }
-
+        public Color randomcolor()
+        {
+            int num = rand.Next(1, 11);
+            if (num==1) return Color.Red;
+            if (num==2) return Color.Black;
+            if (num==3) return Color.Black;
+            if (num==4) return Color.DarkSeaGreen;
+            if (num==5) return Color.Wheat;
+            if (num==6) return Color.Beige;
+            if (num==7) return Color.Maroon;
+            if (num==8) return Color.Lime;
+            if (num==9) return Color.Salmon;
+            if (num == 10) return Color.SaddleBrown;
+            return Color.Tomato;
+        }
         public void Method(GameTime gameTime)
         {
         //
@@ -366,14 +387,15 @@ namespace InsectGenerator
                 start.Draw(spriteBatch);
                 for (int i = 0; i < bars.Count; i++)
                 {
+              
                     bars[i].Draw(spriteBatch);
                 }
 
                 if (bars.Count == 0)
-                    (new Sprite(new Vector2(start.BoundingBoxRect.X + start.BoundingBoxRect.Width - 10, start.BoundingBoxRect.Y), spritesheet, new Rectangle(60, 382, 64, 64), new Vector2(0, 0))).Draw(spriteBatch);
+                    end =new Sprite(new Vector2(start.BoundingBoxRect.X + start.BoundingBoxRect.Width - 10, start.BoundingBoxRect.Y), spritesheet, new Rectangle(60, 382, 64, 64), new Vector2(0, 0));
                 else
-                    (new Sprite(new Vector2(bars[bars.Count - 1].BoundingBoxRect.X + 6, start.BoundingBoxRect.Y), spritesheet, new Rectangle(60, 382, 64, 64), new Vector2(0, 0))).Draw(spriteBatch);
-
+                    end = new Sprite(new Vector2(bars[bars.Count - 1].BoundingBoxRect.X + 6, start.BoundingBoxRect.Y), spritesheet, new Rectangle(60, 382, 64, 64), new Vector2(0, 0));
+                end.Draw(spriteBatch);
                 (new Sprite(new Vector2(500, 20), spritesheet, new Rectangle(356, 64, 70, 70), new Vector2(0, 0))).Draw(spriteBatch);
                 spriteBatch.Draw(button, new Rectangle(726, 10, 64, 64), Color.White);
             }

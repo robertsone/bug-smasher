@@ -20,6 +20,7 @@ namespace InsectGenerator
 
     class Bug : Sprite
     {
+
         public BugMoods mood = BugMoods.Normal;
         public bool Dead = false;
 
@@ -96,12 +97,19 @@ namespace InsectGenerator
         {
             if (Dead) return;
 
+            if (this.frames[0] != new Rectangle(122, 131, 64, 64))
+            {
+                List<Sprite> it = new List<Sprite>();
+
+
+            }
+
             //this.Rotation = (float)rand.Next(0, 360) * MathHelper.Pi / 180f;
             this.frames[0] = new Rectangle(0, 128, 128, 128);
             this.Velocity *= new Vector2(0, 0);
             this.Dead = true;
             this.Location -= new Vector2(32, 32);
-            
+
            
         }
         public override void Draw(SpriteBatch spriteBatch)
