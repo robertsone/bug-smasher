@@ -15,7 +15,9 @@ namespace InsectGenerator
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Texture2D background, spritesheet, pause, button;
+        SpriteFont Font1;
+        Vector2 FontPos;
+        Texture2D background, spritesheet, pause, button,moneybag,shopImg;
         Random rand = new Random(System.Environment.TickCount);
         float timeRemaining = 0.0f;
         float TimePerUpdate = 2.00f;
@@ -23,11 +25,13 @@ namespace InsectGenerator
         int bugNum = 100;
         bool Canclick = true;
         bool leftMouseClicked=false;
-        int powerups = 0;
+        int powerups =0;
         List<Sprite> bars = new List<Sprite>();
         bool paused = false;
         Color color = Color.Transparent;
+        bool inshop = false;
         Sprite end;
+        int money = 0;
         public Game1()
         
         {
@@ -68,11 +72,15 @@ namespace InsectGenerator
 
         protected override void LoadContent()
         {
+            Font1 = Content.Load<SpriteFont>("SpriteFont1");
+            FontPos = new Vector2(600, 210);
 
             background = Content.Load<Texture2D>("background");
             spritesheet = Content.Load<Texture2D>("spritesheet");
             pause = Content.Load<Texture2D>("Save-Toshi-Pause-menu");
             button = Content.Load<Texture2D>("pause");
+            moneybag = Content.Load<Texture2D>("shop");
+            shopImg = Content.Load<Texture2D>("shopImg");
             
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
@@ -128,7 +136,7 @@ namespace InsectGenerator
 
 
 
-            if (paused == false)
+            if (paused == false && inshop==false)
             {
                 if (ms.LeftButton != ButtonState.Pressed)
                 {
@@ -190,6 +198,7 @@ namespace InsectGenerator
 
 
                             bugs[i].Change();
+                            money += 10;
                             
 
                             SpawnBug(new Vector2(rand.Next(-160, -64), rand.Next(20, 400)));
@@ -306,9 +315,11 @@ namespace InsectGenerator
                 EffectManager.Update(gameTime);
                 if (ms.X > 726 && ms.X < 800 && ms.Y > 10 && ms.Y < 74 && leftMouseClicked)
                     paused = true;
+                if (ms.X > 656 && ms.X < 720 && ms.Y > 10 && ms.Y < 74 && leftMouseClicked)
+                    inshop = true;
                 base.Update(gameTime);
             }
-            else
+            if (inshop==false && paused==true)
             {
                 if (leftMouseClicked)
                 {
@@ -319,6 +330,15 @@ namespace InsectGenerator
                 EffectManager.Effect("MagicTrail").Trigger(new Vector2(20 + rand.Next(0, 170), 300 + rand.Next(0, 150)));
                 EffectManager.Update(gameTime);
                 
+            }
+            if (inshop == true && paused == false)
+            {
+                if (leftMouseClicked)
+                {
+
+                    if (ms.X > 311 && ms.X < 420 && ms.Y > 123 && ms.Y < 180)
+                        inshop = false;
+                }
             }
         }
         public Color randomcolor()
@@ -353,11 +373,18 @@ namespace InsectGenerator
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             spriteBatch.Begin();
-            if (paused==false)
+            if (paused==false && inshop==false)
                 spriteBatch.Draw(background, new Rectangle(0, 0, this.Window.ClientBounds.Width, this.Window.ClientBounds.Height), Color.White); 
-            else
+            if (paused==true)
                 spriteBatch.Draw(pause, new Rectangle(0, 0, this.Window.ClientBounds.Width, this.Window.ClientBounds.Height), Color.White);
-            if (!paused)
+            if (inshop == true)
+            {
+                spriteBatch.Draw(shopImg, new Rectangle(0, 0, this.Window.ClientBounds.Width, this.Window.ClientBounds.Height), Color.White);
+                Vector2 FontOrigin = Font1.MeasureString(Convert.ToString(money)) / 2;
+                spriteBatch.DrawString(Font1, Convert.ToString(money), FontPos, Color.Pink, 0, FontOrigin, 1.0f, SpriteEffects.None, 0.5f);
+                
+            }
+            if (!paused && !inshop)
             {
                 for (int i = 0; i < bugs.Count; i++)
                 {
@@ -379,9 +406,10 @@ namespace InsectGenerator
             
             
 
-            if (paused == false)
+            if (paused == false && inshop==false)
             {
                 (new Sprite(new Vector2(163, 00), spritesheet, new Rectangle(0, 301, 512, 80), new Vector2(0, 0))).Draw(spriteBatch);
+                (new Sprite(new Vector2(650, 10), moneybag, new Rectangle(0, 0, 64, 64), new Vector2(0, 0))).Draw(spriteBatch);
 
                 Sprite start = (new Sprite(new Vector2(193, 19), spritesheet, new Rectangle(0, 382, 30, 50), new Vector2(0, 0)));
                 start.Draw(spriteBatch);

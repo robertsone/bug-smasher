@@ -56,3 +56,6 @@ Content\EffectLibrary\SimpleRain.xnb
 Content\EffectLibrary\StarFireImpact.xnb
 Content\EffectLibrary\StarTrail.xnb
 Content\EffectLibrary\WaterJet.xnb
+Content\shop.xnb
+Content\shopImg.xnb
+Content\SpriteFont1.xnb
