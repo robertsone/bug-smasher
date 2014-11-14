@@ -31,6 +31,8 @@ namespace InsectGenerator
         Color color = Color.Transparent;
         bool inshop = false;
         Sprite end;
+        Color textcolor = Color.Pink;
+        int colortimer = 0;
         int money = 0;
         public Game1()
         
@@ -338,9 +340,25 @@ namespace InsectGenerator
 
                     if (ms.X > 311 && ms.X < 420 && ms.Y > 123 && ms.Y < 180)
                         inshop = false;
+                    if (ms.X > 301 && ms.X < 728 && ms.Y > 196 && ms.Y < 247)
+                    {
+                        if (money >= 100)
+                        {
+                            money -= 100;
+                            powerups += 2;
+                        }
+                        else
+                        {
+                            textcolor = Color.Red;
+                            colortimer = 100;
+                        }
+
+                    }
                 }
             }
+            
         }
+        
         public Color randomcolor()
         {
             int num = rand.Next(1, 11);
@@ -381,7 +399,7 @@ namespace InsectGenerator
             {
                 spriteBatch.Draw(shopImg, new Rectangle(0, 0, this.Window.ClientBounds.Width, this.Window.ClientBounds.Height), Color.White);
                 Vector2 FontOrigin = Font1.MeasureString(Convert.ToString(money)) / 2;
-                spriteBatch.DrawString(Font1, Convert.ToString(money), FontPos, Color.Pink, 0, FontOrigin, 1.0f, SpriteEffects.None, 0.5f);
+                spriteBatch.DrawString(Font1, Convert.ToString(money), FontPos, textcolor, 0, FontOrigin, 1.0f, SpriteEffects.None, 0.5f);
                 
             }
             if (!paused && !inshop)
@@ -401,7 +419,11 @@ namespace InsectGenerator
             MouseState ms = Mouse.GetState();
             Rectangle mouserectangle = new Rectangle(ms.X, ms.Y, 1, 1);
 
-
+            colortimer -= 1;
+            if (colortimer <= 0)
+            {
+                textcolor = Color.Pink;
+            }
 
             
             
