@@ -66,3 +66,7 @@ C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\Ins
 C:\Users\EAHSCS\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\shop.xnb
 C:\Users\EAHSCS\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\shopImg.xnb
 C:\Users\EAHSCS\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\SpriteFont1.xnb
+C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Elevator_Music.xnb
+C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Elevator_Music.wma
+C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Splat_sound_effect.xnb
+C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Grenade_sound_effect_2_mp3cut.xnb

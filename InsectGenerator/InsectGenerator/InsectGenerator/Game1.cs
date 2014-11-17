@@ -34,6 +34,8 @@ namespace InsectGenerator
         Color textcolor = Color.Pink;
         int colortimer = 0;
         int money = 0;
+        Song song;
+        SoundEffect splat,explode;
         public Game1()
         
         {
@@ -49,8 +51,8 @@ namespace InsectGenerator
         
         protected override void Initialize()
         {
-            
 
+            
             base.Initialize();
         }
         public void SpawnBug(Vector2 location)
@@ -76,18 +78,23 @@ namespace InsectGenerator
         {
             Font1 = Content.Load<SpriteFont>("SpriteFont1");
             FontPos = new Vector2(600, 210);
-
+            song = Content.Load<Song>("Elevator_Music");
+            splat = Content.Load<SoundEffect>("Splat_sound_effect");
+            explode = Content.Load<SoundEffect>("Grenade_sound_effect_2_mp3cut");
+            
             background = Content.Load<Texture2D>("background");
             spritesheet = Content.Load<Texture2D>("spritesheet");
             pause = Content.Load<Texture2D>("Save-Toshi-Pause-menu");
             button = Content.Load<Texture2D>("pause");
             moneybag = Content.Load<Texture2D>("shop");
             shopImg = Content.Load<Texture2D>("shopImg");
-            
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             EffectManager.Initialize(graphics, Content);
             EffectManager.LoadContent();
+
+            MediaPlayer.IsRepeating = true;
+            MediaPlayer.Play(song);
 
             for (int x = 0; x < 10; x++)
             {
@@ -150,6 +157,7 @@ namespace InsectGenerator
                 {
                     if (powerups >= 1)
                     {
+                        explode.Play();
                         powerups--;
                         EffectManager.Effect("BasicExplosionWithHalo").Trigger(new Vector2(ms.X + 16, ms.Y + 16)); EffectManager.Effect("BasicExplosionWithHalo").Trigger(new Vector2(ms.X + 16, ms.Y + 16));
                         EffectManager.Effect("BasicExplosionWithHalo").Trigger(new Vector2(ms.X + 16, ms.Y + 16)); EffectManager.Effect("BasicExplosionWithHalo").Trigger(new Vector2(ms.X + 16, ms.Y + 16));
@@ -196,10 +204,14 @@ namespace InsectGenerator
                         else
                             EffectManager.Effect("Ship Cannon Fire").Trigger(new Vector2(bugs[i].Center.X, bugs[i].Center.Y));
 
-                        
 
 
+                            splat.Play();
                             bugs[i].Change();
+                            if (bugs[i].mood == BugMoods.Lady)
+                            {
+                                money=-10;
+                            }
                             money += 10;
                             
 
@@ -389,7 +401,7 @@ namespace InsectGenerator
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
+            
             spriteBatch.Begin();
             if (paused==false && inshop==false)
                 spriteBatch.Draw(background, new Rectangle(0, 0, this.Window.ClientBounds.Width, this.Window.ClientBounds.Height), Color.White); 
