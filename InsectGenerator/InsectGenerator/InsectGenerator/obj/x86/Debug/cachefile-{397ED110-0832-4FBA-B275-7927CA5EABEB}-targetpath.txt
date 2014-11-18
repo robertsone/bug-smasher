@@ -63,3 +63,7 @@ Content\Elevator_Music.xnb
 Content\Elevator_Music.wma
 Content\Splat_sound_effect.xnb
 Content\Grenade_sound_effect_2_mp3cut.xnb
+Content\Party_Horn_Sound_Effect_mp3cut.xnb
+Content\Screams_Sound_Effect_mp3cut.xnb
+Content\Cash_register_sound_effect_mp3cut.xnb
+Content\buttons.xnb

@@ -17,7 +17,7 @@ namespace InsectGenerator
         SpriteBatch spriteBatch;
         SpriteFont Font1;
         Vector2 FontPos;
-        Texture2D background, spritesheet, pause, button,moneybag,shopImg;
+        Texture2D background, spritesheet, pause, button,moneybag,shopImg,button2;
         Random rand = new Random(System.Environment.TickCount);
         float timeRemaining = 0.0f;
         float TimePerUpdate = 2.00f;
@@ -25,17 +25,21 @@ namespace InsectGenerator
         int bugNum = 100;
         bool Canclick = true;
         bool leftMouseClicked=false;
-        int powerups =0;
+        int powerups =192;
         List<Sprite> bars = new List<Sprite>();
         bool paused = false;
         Color color = Color.Transparent;
         bool inshop = false;
         Sprite end;
+        int poweruptype = 1;
         Color textcolor = Color.Pink;
         int colortimer = 0;
         int money = 0;
+        int stardistance = 1000;
         Song song;
-        SoundEffect splat,explode;
+        int tospawn = 0;
+        SoundEffect splat, explode, levelup, scream,cash;
+        bool powerupin;
         public Game1()
         
         {
@@ -81,7 +85,10 @@ namespace InsectGenerator
             song = Content.Load<Song>("Elevator_Music");
             splat = Content.Load<SoundEffect>("Splat_sound_effect");
             explode = Content.Load<SoundEffect>("Grenade_sound_effect_2_mp3cut");
-            
+            levelup = Content.Load<SoundEffect>("Party_Horn_Sound_Effect_mp3cut");
+            scream = Content.Load<SoundEffect>("Screams_Sound_Effect_mp3cut");
+            cash = Content.Load<SoundEffect>("Cash_register_sound_effect_mp3cut");
+            button2 = Content.Load<Texture2D>("buttons");
             background = Content.Load<Texture2D>("background");
             spritesheet = Content.Load<Texture2D>("spritesheet");
             pause = Content.Load<Texture2D>("Save-Toshi-Pause-menu");
@@ -89,6 +96,8 @@ namespace InsectGenerator
             moneybag = Content.Load<Texture2D>("shop");
             shopImg = Content.Load<Texture2D>("shopImg");
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            powerupin = false;
+            
 
             EffectManager.Initialize(graphics, Content);
             EffectManager.LoadContent();
@@ -128,6 +137,8 @@ namespace InsectGenerator
 
 
             MouseState ms = Mouse.GetState();
+            
+
             IsMouseVisible = false;
             leftMouseClicked = false;
             //Canclick = true;
@@ -143,7 +154,7 @@ namespace InsectGenerator
                 Canclick = false;
             }
 
-
+            
 
             if (paused == false && inshop==false)
             {
@@ -153,9 +164,10 @@ namespace InsectGenerator
 
 
                 }
+
                 if (leftMouseClicked)
                 {
-                    if (powerups >= 1)
+                    if (powerups >= 1 && poweruptype==1 && ms.Y>=100)
                     {
                         explode.Play();
                         powerups--;
@@ -164,9 +176,46 @@ namespace InsectGenerator
                         EffectManager.Effect("BasicExplosionWithHalo").Trigger(new Vector2(ms.X + 16, ms.Y + 16)); EffectManager.Effect("BasicExplosionWithHalo").Trigger(new Vector2(ms.X + 16, ms.Y + 16));
 
                     }
+                    if (powerups >= 1 && poweruptype == 2 && ms.Y >= 100)
+                    {
+                        stardistance = 1000;
+                        powerups--;
+                        powerupin = true;
+                        tospawn = 0;
+
+                    }
+                    
 
                 }
+                if (powerupin)
+                {
+                    stardistance -= 5;
+                    for (int i = 0; i < bugs.Count; i++)
+                    {
+                        if (stardistance<=0)
+                        {
+                            splat.Play();
+                            bugs[i].Change();
+                            tospawn += 1;
+                            
+                        }
 
+                        EffectManager.Effect("StarTrail").Trigger(new Vector2(bugs[i].Center.X, bugs[i].Center.Y - stardistance));
+                        EffectManager.Effect("MagicTrail").Trigger(new Vector2(bugs[i].Center.X, bugs[i].Center.Y - stardistance));
+                        
+                    }
+                    if (stardistance <= 0)
+                    {
+                        powerupin = false;
+                    }
+                    if (tospawn >= 0)
+                    {
+                        for (int i = 0; i < tospawn; i++)
+                        {
+                            SpawnBug(new Vector2(rand.Next(-160, -64), rand.Next(20, 400)));
+                        }
+                    }
+                }
                 for (int i = 0; i < bugs.Count; i++)
                 {
 
@@ -188,7 +237,7 @@ namespace InsectGenerator
                     }
 
                     Rectangle mouserectangle = new Rectangle(ms.X, ms.Y, 1, 1);
-                    if (powerups >= 1)
+                    if (powerups >= 1 && poweruptype==1)
                     {
                         mouserectangle = new Rectangle(ms.X - 64, ms.Y - 64, 128, 128);
                     }
@@ -196,6 +245,7 @@ namespace InsectGenerator
                     {
                         if (bugs[i].mood == BugMoods.Lady)
                         {
+                            scream.Play();
                             List<Sprite> it = new List<Sprite>();
                             bars = it;
                             EffectManager.Effect("PulseTracker").Trigger(new Vector2(bugs[i].Center.X, bugs[i].Center.Y));
@@ -224,6 +274,7 @@ namespace InsectGenerator
                                     List<Sprite> it = new List<Sprite>();
                                     bars = it;
                                     powerups += 10;
+                                    levelup.Play();
                                 }
 
                             }
@@ -331,7 +382,23 @@ namespace InsectGenerator
                     paused = true;
                 if (ms.X > 656 && ms.X < 720 && ms.Y > 10 && ms.Y < 74 && leftMouseClicked)
                     inshop = true;
+                if (ms.X > 10 && ms.X < 76 && ms.Y > 10 && ms.Y < 74 && leftMouseClicked)
+                    poweruptype = 1;
+                if (ms.X > 80 && ms.X < 146 && ms.Y > 10 && ms.Y < 74 && leftMouseClicked)
+                    poweruptype = 2;
                 base.Update(gameTime);
+            }
+            if (powerups >= 1 && inshop == false && paused == false && poweruptype==1)
+            {
+                EffectManager.Effect("BasicExplosion").Trigger(new Vector2(ms.X - 10, ms.Y));
+                EffectManager.Effect("ShieldsUp").Trigger(new Vector2(ms.X - 10, ms.Y));
+
+            }
+            if (powerups >= 1 && inshop == false && paused == false && poweruptype == 2)
+            {
+                EffectManager.Effect("ShieldBounce").Trigger(new Vector2(ms.X - 10, ms.Y));
+                EffectManager.Effect("StarTrail").Trigger(new Vector2(ms.X - 10, ms.Y));
+
             }
             if (inshop==false && paused==true)
             {
@@ -358,6 +425,7 @@ namespace InsectGenerator
                         {
                             money -= 100;
                             powerups += 2;
+                            cash.Play();
                         }
                         else
                         {
@@ -444,7 +512,8 @@ namespace InsectGenerator
             {
                 (new Sprite(new Vector2(163, 00), spritesheet, new Rectangle(0, 301, 512, 80), new Vector2(0, 0))).Draw(spriteBatch);
                 (new Sprite(new Vector2(650, 10), moneybag, new Rectangle(0, 0, 64, 64), new Vector2(0, 0))).Draw(spriteBatch);
-
+                (new Sprite(new Vector2(10, 10), button2, new Rectangle(0, 0, 64, 64), new Vector2(0, 0))).Draw(spriteBatch);
+                (new Sprite(new Vector2(80, 10), button2, new Rectangle(64, 0, 64, 64), new Vector2(0, 0))).Draw(spriteBatch);
                 Sprite start = (new Sprite(new Vector2(193, 19), spritesheet, new Rectangle(0, 382, 30, 50), new Vector2(0, 0)));
                 start.Draw(spriteBatch);
                 for (int i = 0; i < bars.Count; i++)
@@ -461,8 +530,12 @@ namespace InsectGenerator
                 (new Sprite(new Vector2(500, 20), spritesheet, new Rectangle(356, 64, 70, 70), new Vector2(0, 0))).Draw(spriteBatch);
                 spriteBatch.Draw(button, new Rectangle(726, 10, 64, 64), Color.White);
             }
-             
-            (new Sprite(new Vector2(mouserectangle.X - 32, mouserectangle.Y - 32), spritesheet, new Rectangle(143, 64 * 3, 64, 64), new Vector2(0, 0))).Draw(spriteBatch);
+            if (powerups>=1 && inshop==false && paused==false && poweruptype==1)
+            {
+                
+            }
+            else
+                (new Sprite(new Vector2(mouserectangle.X - 32, mouserectangle.Y - 32), spritesheet, new Rectangle(143, 64 * 3, 64, 64), new Vector2(0, 0))).Draw(spriteBatch);
             spriteBatch.End();
             EffectManager.Draw();
 

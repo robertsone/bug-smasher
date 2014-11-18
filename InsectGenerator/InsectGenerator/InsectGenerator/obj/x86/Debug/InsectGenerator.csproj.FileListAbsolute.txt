@@ -70,3 +70,7 @@ C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\Ins
 C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Elevator_Music.wma
 C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Splat_sound_effect.xnb
 C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Grenade_sound_effect_2_mp3cut.xnb
+C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Party_Horn_Sound_Effect_mp3cut.xnb
+C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Screams_Sound_Effect_mp3cut.xnb
+C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\Cash_register_sound_effect_mp3cut.xnb
+C:\Users\eahscs\Documents\GitHub\bug-smasher\InsectGenerator\InsectGenerator\InsectGenerator\bin\x86\Debug\Content\buttons.xnb
