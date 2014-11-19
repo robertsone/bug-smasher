@@ -25,7 +25,7 @@ namespace InsectGenerator
         int bugNum = 100;
         bool Canclick = true;
         bool leftMouseClicked=false;
-        int powerups =192;
+        int powerups =0;
         List<Sprite> bars = new List<Sprite>();
         bool paused = false;
         Color color = Color.Transparent;
@@ -35,11 +35,12 @@ namespace InsectGenerator
         Color textcolor = Color.Pink;
         int colortimer = 0;
         int money = 0;
-        int stardistance = 1000;
+        int stardistance = 500;
         Song song;
         int tospawn = 0;
         SoundEffect splat, explode, levelup, scream,cash;
         bool powerupin;
+        int timer = 0;
         public Game1()
         
         {
@@ -167,7 +168,7 @@ namespace InsectGenerator
 
                 if (leftMouseClicked)
                 {
-                    if (powerups >= 1 && poweruptype==1 && ms.Y>=100)
+                    if (powerups >= 1 && poweruptype==1 && ms.Y>=100 && !powerupin)
                     {
                         explode.Play();
                         powerups--;
@@ -176,7 +177,7 @@ namespace InsectGenerator
                         EffectManager.Effect("BasicExplosionWithHalo").Trigger(new Vector2(ms.X + 16, ms.Y + 16)); EffectManager.Effect("BasicExplosionWithHalo").Trigger(new Vector2(ms.X + 16, ms.Y + 16));
 
                     }
-                    if (powerups >= 1 && poweruptype == 2 && ms.Y >= 100)
+                    if (powerups >= 1 && poweruptype == 2 && ms.Y >= 100 && !powerupin)
                     {
                         stardistance = 1000;
                         powerups--;
@@ -189,7 +190,7 @@ namespace InsectGenerator
                 }
                 if (powerupin)
                 {
-                    stardistance -= 5;
+                    stardistance -= 15;
                     for (int i = 0; i < bugs.Count; i++)
                     {
                         if (stardistance<=0)
@@ -212,7 +213,7 @@ namespace InsectGenerator
                     {
                         for (int i = 0; i < tospawn; i++)
                         {
-                            SpawnBug(new Vector2(rand.Next(-160, -64), rand.Next(20, 400)));
+                            SpawnBug(new Vector2(rand.Next(-960, -64), rand.Next(20, 400)));
                         }
                     }
                 }
@@ -237,7 +238,7 @@ namespace InsectGenerator
                     }
 
                     Rectangle mouserectangle = new Rectangle(ms.X, ms.Y, 1, 1);
-                    if (powerups >= 1 && poweruptype==1)
+                    if (powerups >= 1 && poweruptype==1 &&!powerupin)
                     {
                         mouserectangle = new Rectangle(ms.X - 64, ms.Y - 64, 128, 128);
                     }
@@ -511,6 +512,7 @@ namespace InsectGenerator
             if (paused == false && inshop==false)
             {
                 (new Sprite(new Vector2(163, 00), spritesheet, new Rectangle(0, 301, 512, 80), new Vector2(0, 0))).Draw(spriteBatch);
+                (new Sprite(new Vector2(720, 10), button, new Rectangle(0, 0, 64, 64), new Vector2(0, 0))).Draw(spriteBatch);
                 (new Sprite(new Vector2(650, 10), moneybag, new Rectangle(0, 0, 64, 64), new Vector2(0, 0))).Draw(spriteBatch);
                 (new Sprite(new Vector2(10, 10), button2, new Rectangle(0, 0, 64, 64), new Vector2(0, 0))).Draw(spriteBatch);
                 (new Sprite(new Vector2(80, 10), button2, new Rectangle(64, 0, 64, 64), new Vector2(0, 0))).Draw(spriteBatch);
@@ -528,7 +530,14 @@ namespace InsectGenerator
                     end = new Sprite(new Vector2(bars[bars.Count - 1].BoundingBoxRect.X + 6, start.BoundingBoxRect.Y), spritesheet, new Rectangle(60, 382, 64, 64), new Vector2(0, 0));
                 end.Draw(spriteBatch);
                 (new Sprite(new Vector2(500, 20), spritesheet, new Rectangle(356, 64, 70, 70), new Vector2(0, 0))).Draw(spriteBatch);
-                spriteBatch.Draw(button, new Rectangle(726, 10, 64, 64), Color.White);
+                string it = "dont kill the lady bugs!";
+                timer--;
+                if (timer >= 0)
+                {
+                    Vector2 FontOrigin = Font1.MeasureString(Convert.ToString(it)) / 2;
+                    spriteBatch.DrawString(Font1, Convert.ToString(it), new Vector2(400, 450), Color.White, 0, FontOrigin, 1.0f, SpriteEffects.None, 0.5f);
+                    spriteBatch.Draw(button, new Rectangle(726, 10, 64, 64), Color.White);
+                }
             }
             if (powerups>=1 && inshop==false && paused==false && poweruptype==1)
             {

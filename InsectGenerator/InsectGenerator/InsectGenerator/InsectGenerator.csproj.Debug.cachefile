@@ -36,6 +36,7 @@ Content\Save-Toshi-Pause-menu.xnb
 Content\pause.xnb
 Content\shop.xnb
 Content\shopImg.xnb
+Content\buttons.xnb
 Content\EffectLibrary\BasicExplosion.xnb
 Content\EffectLibrary\BasicExplosionWithHalo.xnb
 Content\EffectLibrary\BasicExplosionWithTrails2.xnb
@@ -65,5 +66,4 @@ Content\Grenade_sound_effect_2_mp3cut.xnb
 Content\Party_Horn_Sound_Effect_mp3cut.xnb
 Content\Screams_Sound_Effect_mp3cut.xnb
 Content\Cash_register_sound_effect_mp3cut.xnb
-Content\buttons.xnb
 Content\Elevator_Music.wma
